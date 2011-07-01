@@ -1,3 +1,7 @@
+	</section>
+	<aside>
+			<?php wp_nav_menu( array( 'menu' => 'Aside Menu',  'link_after' => '<span class="arrow"></span>' ) ) ?>
+	</aside>
 </section>
 <?php
 	/* Always have wp_footer() just before the closing </body>

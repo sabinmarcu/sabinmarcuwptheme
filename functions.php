@@ -44,6 +44,10 @@
  * Used to set the width of images and content. Should be equal to the width the theme
  * is designed for, generally via the style.css stylesheet.
  */
+function cutChars($content) 
+{
+    return substr($content, 0, 300);
+}
 if ( ! isset( $content_width ) )
 	$content_width = 640;
 

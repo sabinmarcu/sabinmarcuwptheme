@@ -18,6 +18,13 @@
  * @since Twenty Ten 1.0
  */
 ?>
+<?php /* Display navigation to next/previous pages when applicable */ ?>
+<?php if ( $wp_query->max_num_pages > 1 ) : ?>
+	<div id="nav-above" class="navigation">
+		<div class="nav-previous"><?php next_posts_link( __( '<span class="meta-nav">&larr;</span> Older posts', 'twentyten' ) ); ?></div>
+		<div class="nav-next"><?php previous_posts_link( __( 'Newer posts <span class="meta-nav">&rarr;</span>', 'twentyten' ) ); ?></div>
+	</div><!-- #nav-above -->
+<?php endif; ?>
 
 <?php /* If there are no posts to display, such as an empty archive page */ ?>
 <?php if ( ! have_posts() ) : ?>
@@ -45,9 +52,8 @@
 	 *
 	 * Without further ado, the loop:
 	 */ ?>
-	
+<section id='list'>
 <?php while ( have_posts() ) : the_post(); ?>
-
 <?php /* How to display posts of the Gallery format. The gallery category is the old way. */ ?>
 
 	<?php if ( ( function_exists( 'get_post_format' ) && 'gallery' == get_post_format( $post->ID ) ) || in_category( _x( 'gallery', 'gallery category slug', 'twentyten' ) ) ) : ?>
@@ -60,7 +66,7 @@
 
 			<div class="entry-content">
 <?php if ( post_password_required() ) : ?>
-				<?php the_content(); ?>
+				<?php the_excerpt(); ?>
 <?php else : ?>
 				<?php
 					$images = get_children( array( 'post_parent' => $post->ID, 'post_type' => 'attachment', 'post_mime_type' => 'image', 'orderby' => 'menu_order', 'order' => 'ASC', 'numberposts' => 999 ) );
@@ -105,7 +111,7 @@
 			</div><!-- .entry-summary -->
 		<?php else : ?>
 			<div class="entry-content">
-				<?php the_content( __( 'Continue reading <span class="meta-nav">&rarr;</span>', 'twentyten' ) ); ?>
+				<?php the_excerpt( __( 'Continue reading <span class="meta-nav">&rarr;</span>', 'twentyten' ) ); ?>
 			</div><!-- .entry-content -->
 		<?php endif; ?>
 
@@ -133,7 +139,7 @@
 			</div><!-- .entry-summary -->
 	<?php else : ?>
 			<div class="entry-content">
-				<?php the_content( __( 'Continue reading <span class="meta-nav">&rarr;</span>', 'twentyten' ) ); ?>
+				<?php the_excerpt( __( 'Continue reading <span class="meta-nav">&rarr;</span>', 'twentyten' ) ); ?>
 				<?php wp_link_pages( array( 'before' => '<div class="page-link">' . __( 'Pages:', 'twentyten' ), 'after' => '</div>' ) ); ?>
 			</div><!-- .entry-content -->
 	<?php endif; ?>
@@ -162,6 +168,13 @@
 		<?php comments_template( '', true ); ?>
 
 	<?php endif; // This was the if statement that broke the loop into three parts based on categories. ?>
-
 <?php endwhile; // End the loop. Whew. ?>
+</section>
 
+<?php /* Display navigation to next/previous pages when applicable */ ?>
+<?php if (  $wp_query->max_num_pages > 1 ) : ?>
+				<div id="nav-below" class="navigation">
+					<div class="nav-previous"><?php next_posts_link( __( '<span class="meta-nav">&larr;</span> Older posts', 'twentyten' ) ); ?></div>
+					<div class="nav-next"><?php previous_posts_link( __( 'Newer posts <span class="meta-nav">&rarr;</span>', 'twentyten' ) ); ?></div>
+				</div><!-- #nav-below -->
+<?php endif; ?>

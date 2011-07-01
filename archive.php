@@ -17,9 +17,6 @@ get_header(); ?>
 		<div id="container">
 			<div id="content" role="main">
 
-					<h1 class="page-title"><?php
-						printf( __( 'Archive: ') );
-					?></h1>
 <?php
 	/* Queue the first post, that way we know
 	 * what date we're dealing with (if that is the case).

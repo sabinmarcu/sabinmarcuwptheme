@@ -58,30 +58,39 @@
 <body <?php body_class(); ?>>
 
 	<header>
-	
-		
-	
-	</header>
-
-<!--
-<aside>
-	<nav>
-		<?php wp_nav_menu(array( 'menu' => "Main Menu" , 'link_after' => "<div class='arrow black'></div><div class='arrow white'></div>" ) ) ?>
-	</nav>
-</aside>
-<header>
-	<div class='user social'>
-		<nav>
-			<li><a href='http://facebook.com/sabinmarcu' id='facebook'></a></li>
-			<li><a href="http://twitter.com/#/sabinmarcu" id='twitter'></a></li>
-			<li><a href="http://ro.linkedin.com/in/marcusabin" id='linkedin'></a></li>
-			<li><a href="http://www.last.fm/user/marcusabin" id='lastfm'></a></li>
-			<li><a href="mailto:sabinmarcu@gmail.com" id='gmail'></a></li>			
+		<section id='wrapper' class='wrapper'>
+		<section id='branding'>
+			<a href="<?php echo home_url( '/' ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" rel="home"><img src='<?php bloginfo('template_url') ?>/images/logo.png' /></a>
+			<ul>
+			<li><a href='http://twitter.com/#!/sabinmarcu'>Twitter</a></li>
+			<li><a href='http://www.facebook.com/sabinmarcu'>Facebook</a></li>
+			<li><a href='https://plus.google.com/114906508097683503164/'>Google+</a></li>
+			</ul>
+		</section>
+		<section id='twitter'>
+			<?php try { $feed = new SimpleXMLElement(file_get_contents("http://twitter.com/statuses/user_timeline/sabinmarcu.xml?count=1")); $feed = $feed -> status;?>
+			<h5>Latest tweet by <a href='http://twitter.com/<?php echo $feed -> user -> screen_name ?>'><?php echo $feed -> user -> name ?></a></h5>
+			<blockquote><?php echo $feed -> text ?></blockquote>
+			<p>via <?php echo $feed -> source ?></p>
+			<?php } catch (Exception $e) {} ?>
+		</section>		
+		<nav id='administration'>
+			<ul>
+				<?php get_currentuserinfo() ;  global $user_level;  if ($user_level > 0) { ?>
+				<li><a href='<?php echo wp_logout_url() ?>'>Log Out</a></li>
+				<?php if ( current_user_can('manage_options') ) { ?>
+				<li><a href='/wp-admin'>Administration</a></li>
+				<?php } } else { ?>			
+				<li><a href='<?php echo wp_login_url() ?>'>Log In</a></li>
+				<li><a href='/wp-login?action=register'>Register</a></li>
+				<?php } ?>
+			</ul>
 		</nav>
-	</div>
-	<div class='user tweets'><?php	$tweet=json_decode(file_get_contents("http://api.twitter.com/1/statuses/user_timeline/sabinmarcu.json"));	echo $tweet[0]->text;	?></div>
-	<div class="site supratitle"><?php bloginfo( 'description' ); ?></div>
-	<div class="site title"><a href="<?php echo home_url( '/' ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" rel="home"><span id="first">Sabin</span><span id="second">Marcu</span></a></div>
-</header>
-<section>
--->
+		<nav id='navigation'>
+			<?php wp_nav_menu(array( 'menu' => "Top Menu" ) ); ?>			
+		</nav>	
+		<div class='clear: both'></div>
+		</section>
+	</header>
+	<section id='main' class='wrapper'>		
+		<section id='content'>

@@ -1,3 +1,17 @@
+/*
+Theme Name: Sabin Marcu Personal
+Theme URI: http://wordpress.org/
+Description: 
+Author: Sabin Marcu
+Version: 1.2
+License: GNU General Public License
+License URI: license.txt
+Tags: 
+*/
+
+
+/* =Reset default browser CSS. Based on work by Eric Meyer: http://meyerweb.com/eric/tools/css/reset/index.html
+-------------------------------------------------------------- */
 body{
 	font-family: Arial;
 }
@@ -17,4 +31,259 @@ a, a:link, a:visited{
 }
 a:hover, a:focus{
 	color: #64160e;
+}
+section.wrapper{
+	max-width: 1000px;
+	margin: 0 auto;
+	position: relative;
+}
+header{
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	height: 95px;
+	border-bottom: solid 2px #898989;
+	font-size: 10pt;
+	font-weight: lighter;
+	font-family: "Yanone Kaffeesatz";
+	white-space: nowrap;
+	background: #fff;
+	z-index: 999999;
+}
+section#branding{
+	float: left;
+	width: 175px;
+	height: 175px;
+	text-align: left;
+	font-family: "Arial";
+	font-size: 9pt;
+}
+section#branding ul{
+	position: absolute;
+	left: 50px;
+	top: 105px;
+	list-style: none;
+}
+section#twitter{
+	width: 250px;
+	float: left;
+	text-align: left;
+	vertical-align: bottom;
+	display: inline-block;
+	margin: 10px 0 0 0px;
+	padding: 0 0 0 10px;
+	border-left: solid 1px #acacac;
+	height: 75px
+}
+section#twitter *{
+	margin: 0;
+	padding: 0;
+	font-weight: lighter;
+	font-size: 12pt
+}
+header nav{
+	float: right;
+	display: inline-block;
+	border-radius: 2px;
+	max-height: 40px;
+	margin: 30px 10px 0 0;
+	font-family: Arial;
+}
+header nav#administration{
+	margin-right: 0;
+}
+section#twitter blockquote{
+	font-family: "Arial", sans-serif;
+	font-size: 8pt;
+	white-space: pre-wrap;
+}
+header nav li{
+	display: inline-block;
+	padding: 0;
+	margin: 0;
+	font-size: 10pt;
+	line-height: 15px
+}
+header nav ul{
+	padding: 0;
+	margin: 0;
+	font-size: 0;
+}
+header nav li a:link, header nav li a:visited{
+	display: block;
+	padding: 10px;
+	border: solid 1px #cacaca;
+	border-right-color: transparent;
+	color: #898989;
+	text-shadow: 0 -1px 1px #fff;
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0, #fff), color-stop(1, #f0f0f0));
+	font-weight: lighter
+}
+header nav li:first-child a{
+	border-top-left-radius: 2px;
+	border-bottom-left-radius: 2px;
+}
+header nav li:last-child a{
+	border-top-right-radius: 2px;
+	border-bottom-right-radius: 2px;
+	border-right: solid 1px #cacaca
+}
+header nav li a:hover, header nav li a:focus{
+	border: solid 1px #898989;
+	-webkit-box-shadow: 0 0 5px #ccc;
+	color: #222
+}
+section#main{
+	position: fixed;
+	top: 97px;
+	left: 0;
+	right: 0;
+	bottom: 0;
+}
+aside{
+	position: absolute;
+	left: 0;
+	top: 10px;
+	bottom: 0;
+	width: 175px;
+}
+aside h4{
+	margin: 0;
+	padding: 0 0 0 15px;
+	text-align: left;
+}
+aside ul{
+	padding: 0 0 0 10px;
+	margin: 0 ;
+	padding: 70px 0 0 0;
+	text-align: right;
+}
+aside ul ul{
+	position: absolute;
+	left: 100%;
+	top: 0;
+	min-width: 150px;
+	display: none;
+	text-align: left;
+	padding: 0 5px 0 15px;
+}
+aside ul ul{
+	padding: 0 5px;
+}
+aside ul li:hover ul{
+	display: block;
+}
+aside li{
+	display: block;
+	position: relative;
+}
+aside a, aside a:link, aside a:visited{
+	display: block;
+	padding: 7px 15px;
+	border-radius: 2px;
+	border: solid 1px transparent;
+	color: #acacac;
+	font-weight: 100;
+	border-bottom: dotted 1px #eee;
+	background: #fff;
+}
+aside li:hover > a, aside li:focus > a, aside li.current-menu-item a{
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0, #ffffff), color-stop(1, #f0f0f0));
+	color: #222;
+	border: solid 1px #cacaca;
+	-webkit-box-shadow: 0 0 5px #ccc;
+}
+aside li.current-menu-item > a{
+	color: #DD4B39;
+	text-shadow: 0 -1px 1px #ddd
+}
+section#content{
+	text-align: justify;
+	position: absolute;
+	left: 175px;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	padding: 25px 15px 25px 15px;
+	overflow: auto;
+	border-left: solid 1px #acacac;
+}
+.post, #comments{
+	padding: 25px 0 50px 0;
+	border-top: dotted 2px #989889;
+}
+.nav-previous, .nav-next{
+	padding: 5px;
+}
+.nav-previous{
+	float:left;
+}
+.nav-next{
+	float: right;
+}
+.navigation{
+	overflow: hidden;
+	clear: both;
+}
+h1, h2, h3, h4, h5, h6{
+	text-align: left;
+	padding-left: none;
+	margin-left: none;
+}
+input, textarea, select{
+	border: solid 1px #cacaca;
+	color: #898989;
+	text-shadow: 0 -1px 1px #fff;
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0, #fff), color-stop(1, #f0f0f0));
+	font-weight: lighter
+}
+#comments input, #comments textarea, #comments select{
+	float: right;
+	width: 520px;
+	padding: 5px;
+	clear: right;
+}
+input:hover, input:active,
+textarea:hover, input:hover,
+select:hover, select:hover{
+	border: solid 1px #898989;
+	-webkit-box-shadow: 0 0 5px #ccc;
+	color: #222
+}
+input[type='submit']{
+	font-size: 12pt;
+	font-weight: bold;
+}
+#comments input[type='submit']{
+	float: none;
+	width: 755px;
+	margin: 10px 0 0 0;
+}
+#comments label{
+	float: left;
+	width: 180px;
+	padding: 10px;
+	clear: left;
+	text-align: right;
+}
+#comments p{
+	clear: both;
+	overflow: hidden;
+}
+.entry-meta{
+	margin-bottom: 25px;
+}
+section#list{
+	text-align: center
+}
+section#list .post{
+	vertical-align: top;
+	width: 340px;
+	display: inline-block;
+	clear: none;
+	border: dotted 1px #989898;
+	margin: 10px;
+	text-align: left;
+	padding: 10px;
 }
